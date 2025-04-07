@@ -1,0 +1,34 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.Header {
+  display: flex;
+  justify-content: space-around;
+  background-color: #f2efe7;
+  /* box-shadow: ; */
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+}
+
+.resLinks {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  margin-right: 30px;
+}
+
+.resLinks > li {
+  padding: 0 10px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.3rem;
+}
+
+.resLinks > li:hover {
+  cursor: pointer;
+  color: #ff9b17;
+}
