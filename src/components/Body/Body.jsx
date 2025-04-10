@@ -2,6 +2,7 @@ import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import "./Body.css";
 import resList from "../../util/mockData";
 import { useEffect, useState } from "react";
+import Shimmer from "../Shimmer/Shimmer";
 
 const Body = () => {
   const [listOfRestaurant, setListOfRestaurant] = useState([]);
@@ -20,7 +21,9 @@ const Body = () => {
     );
   };
 
-  return (
+  return listOfRestaurant.length === 0 ? (
+    <Shimmer />
+  ) : (
     <div className="bodySection">
       <div className="search">
         <button
