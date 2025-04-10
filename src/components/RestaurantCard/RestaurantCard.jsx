@@ -1,4 +1,5 @@
 import "./restaurantCard.css";
+import { IMG_URL } from "../../util/constant";
 const RestaurantCard = (props) => {
   const { resData } = props;
 
@@ -9,14 +10,7 @@ const RestaurantCard = (props) => {
   return (
     <>
       <div className="resCard">
-        <img
-          src={
-            "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-            cloudinaryImageId
-          }
-          className="resImg"
-          alt=""
-        />
+        <img src={IMG_URL + cloudinaryImageId} className="resImg" alt="" />
         <div className="details">
           <h3>{name}</h3>
           <h4>{cuisines.join(",")}</h4>
