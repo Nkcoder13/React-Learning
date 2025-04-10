@@ -1,5 +1,7 @@
+import { useState } from "react";
 import "./header.css";
 const Header = () => {
+  const [status, setStatus] = useState("Login");
   return (
     <div className="Header">
       <div>
@@ -15,7 +17,14 @@ const Header = () => {
         <li>Home</li>
         <li>About Us</li>
         <li>Contact Us</li>
-        <li>Review</li>
+        <li>Cart</li>
+        <button
+          onClick={() => {
+            status === "Login" ? setStatus("Logout") : setStatus("Login");
+          }}
+        >
+          {status}
+        </button>
       </ul>
     </div>
   );
