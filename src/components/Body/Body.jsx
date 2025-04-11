@@ -1,6 +1,5 @@
 import RestaurantCard from "../RestaurantCard/RestaurantCard";
 import "./Body.css";
-import resList from "../../util/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "../Shimmer/Shimmer";
 import { API_URL } from "../../util/constant";
@@ -35,9 +34,9 @@ const Body = () => {
           className="topResbtn"
           onClick={() => {
             const filteredRestaurant = listOfRestaurant.filter((res) => {
-              return res?.info?.avgRating >= 4.3;
+              return res?.info?.avgRating >= 4.5;
             });
-            setListOfRestaurant(filteredRestaurant);
+            setFilterRestaurant(filteredRestaurant);
           }}
         >
           Top Restuartants
