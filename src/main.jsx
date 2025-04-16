@@ -7,6 +7,7 @@ import Contact from "./components/Contact/Contact.jsx";
 import About from "./components/About/About.jsx";
 import Body from "./components/Body/Body.jsx";
 import Error from "./components/Error/Error.jsx";
+import RestaurantMenu from "./components/RestaurantMenu/RestaurantMenu.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/restaurants/:resId",
+        element: <RestaurantMenu />,
       },
     ],
   },
