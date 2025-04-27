@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "./header.css";
 import { Link } from "react-router";
+import useOnlineStatus from "../../util/useOnlineStatus";
 
 const Header = () => {
   const [status, setStatus] = useState("Login");
+  const onlineStatus = useOnlineStatus();
+
   return (
     <div className="Header">
       <div>
@@ -16,6 +19,7 @@ const Header = () => {
       </div>
 
       <ul className="resLinks">
+        <li>{onlineStatus ? "✅ Online" : "🔴 Offine"}</li>
         <li>
           <Link to="/">Home</Link>
         </li>
