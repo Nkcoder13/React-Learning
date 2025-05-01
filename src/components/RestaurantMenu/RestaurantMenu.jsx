@@ -1,6 +1,7 @@
 import Shimmer from "../Shimmer/Shimmer";
 import { useParams } from "react-router";
 import useRestaurantMenu from "../../util/useRestaurantMenu";
+import ItemHeader from "./ItemHeader";
 
 const RestaurantMenu = () => {
   const { resId } = useParams();
@@ -8,29 +9,22 @@ const RestaurantMenu = () => {
 
   if (menuData === null) return <Shimmer />;
 
-  const { name, city, costForTwoMessage } = menuData[2].card.card.info;
-  let eData =
-    menuData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-      ?.itemCards;
-  if (eData === undefined) {
-    eData = [];
+  let data = menuData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
+  const category = data.filter(
+    (x) =>
+      x?.card?.card?.["@type"] ===
+      "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  );
+  if (data === undefined) {
+    data = [];
   }
 
   return (
     <div>
-      <h1>{name}</h1>
-      <h2>{city}</h2>
-      <h4>{costForTwoMessage}</h4>
-      <ul>
-        {eData.map((x) => (
-          <li key={x.card.info.id}>
-            {x.card.info.name} - ₹
-            {(x.card.info.price ||
-              x.card.info.finalPrice ||
-              x.card.info.defaultPrice) / 100}
-          </li>
-        ))}
-      </ul>
+      {/* categories Accordian */}
+      {category.map((x) => (
+        <ItemHeader key={x?.card?.card?.name} data={x?.card?.card} />
+      ))}
     </div>
   );
 };

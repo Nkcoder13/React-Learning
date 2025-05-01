@@ -19,7 +19,6 @@ class AboutClass extends React.Component {
   }
 
   render() {
-    console.log(this.state.data);
     const { name, location, avatar_url } = this.state.data;
     return (
       <div>

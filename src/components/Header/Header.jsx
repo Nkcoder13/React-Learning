@@ -8,18 +8,22 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="Header">
-      <div>
+    <div className="flex justify-between gap-1 sm:justify-around sm:items-center bg-emerald-100 ">
+      <div className="sm:flex items-center gap-2">
         <img
           src="src\assets\logo.png"
-          className="logo"
+          className="w-30  object-cover"
           alt="image not loaded"
         />
-        <h4>Nk&apos;s Kitchen</h4>
+        <h4 className="font-bold font-mono text-green-900 text-xs">
+          Nk&apos;s Kitchen
+        </h4>
       </div>
 
-      <ul className="resLinks">
-        <li>{onlineStatus ? "✅ Online" : "🔴 Offine"}</li>
+      <ul className="flex items-center gap-1.5 sm:gap-3 text-sm  space-x-4">
+        <li className="bg-green-300 text-black text-sm sm:p-1  rounded-lg hover:bg-green-800 hover:cursor-not-allowed hover:text-white">
+          {onlineStatus ? "✅ Online" : "🔴 Offine"}
+        </li>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -29,8 +33,8 @@ const Header = () => {
         <li>
           <Link to="/contact">Contact Us</Link>
         </li>
-        <li>Cart</li>
         <button
+          className="bg-white text-green-950 px-4 py-2 rounded-full hover:cursor-pointer "
           onClick={() => {
             status === "Login" ? setStatus("Logout") : setStatus("Login");
           }}

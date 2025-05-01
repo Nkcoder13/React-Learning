@@ -12,7 +12,6 @@ const useOnlineStatus = () => {
   useEffect(() => {
     window.addEventListener("offline", () => {
       setStatus(false);
-      console.log("offline");
     });
   }, []);
 
