@@ -1,11 +1,9 @@
 import ItemCard from "./ItemCard";
 import { useState } from "react";
 
-const ItemHeader = ({ data }) => {
-  const [showItem, setShowItem] = useState(false);
-
+const ItemHeader = ({ data, showItem, setShowIndex }) => {
   const handleClick = () => {
-    setShowItem(!showItem);
+    setShowIndex();
   };
   return (
     // Accordion Header
